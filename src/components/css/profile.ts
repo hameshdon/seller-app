@@ -4,16 +4,31 @@ import { StyleSheet } from 'react-native';
 
 
 export const ProfileStyles = StyleSheet.create({
+
+
   headers: {
 
-    backgroundColor:"#8F39FF",
+    backgroundColor:'#2ECC71',
     height:80,
+    display:"flex",
+    flexDirection:"row",
 
-    padding:10,
+    padding:18,
     position:"relative",
   },
   headContainer: {
     marginBottom:3,
+    textAlign:"center",
+    alignItems:"center"
+  },
+  logo: {
+    justifyContent:"center"
+
+  },
+  regisText: {
+    fontWeight:"bold",
+    fontSize: 22,
+    marginBottom:18,
   },
 
   headText: {
@@ -24,17 +39,25 @@ export const ProfileStyles = StyleSheet.create({
     fontSize:15
 
   },
+  formContainer: {
+    display:"flex",
+    flexDirection: 'column',
+    justifyContent:"center",
+    alignItems: 'center',
+
+
+  },
   greenButton: {
     width: 150,
     height: 50,
     backgroundColor: '#2ECC71',
     borderRadius: 6,
     color: '#ffffff',
-    justifyContent: 'space-between',
+   justifyContent:"center",
     padding: 15,
     flexDirection: 'row',
    
-    alignItems: 'center'
+    // alignItems: 'center'
 
   },
   whiteText: {
@@ -137,7 +160,7 @@ export const ProfileStyles = StyleSheet.create({
     color: '#323232'
   },
   inputBox: {
-   width:100,
+  width:350,
     height: 50,
     borderColor: '#CCCCCC',
     borderRadius: 6,
@@ -232,12 +255,12 @@ export const ProfileStyles = StyleSheet.create({
   content: {
     backgroundColor: 'white',
     overflow: 'scroll',
-    padding: 15,
+    padding: 20,
     // width: "90vw",
     display: "flex",
     justifyContent: "center",
-    alignItems:"center",
-    marginTop:60,
+    // alignItems:"center",
+    marginTop:30,
     
     textAlign:"center",
 
@@ -493,7 +516,7 @@ appointNonTouched4: {
     height:"194",
 
   }
-
+ 
 
 
 

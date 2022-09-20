@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { Dimensions } from 'react-native';
+import Checkbox from 'expo-checkbox';
 import {
     StyleSheet,
     TextInput,
@@ -13,6 +14,9 @@ import {
 } from "react-native";
 
 import { ProfileStyles } from "./css/profile";
+
+const {width,height} = Dimensions.get('window')
+
 export default function Registration() {
     const initialstate = {
         firstname: "",
@@ -91,21 +95,26 @@ export default function Registration() {
         } else {
             setError({ ...error, emailErr: "" });
         }
-    }
+    }const [isChecked, setChecked] = useState(false);
+    const [isChecked2, setChecked2] = useState(false);
 
     return (
-        <View style={ProfileStyles.content}>
+     
+      <View style={ProfileStyles.content}>
           
               
-                
+            <View>
+                <Text style={ProfileStyles.regisText}>Registration</Text>
+                </View>  
            
+         <View >
             <View style={ProfileStyles.headContainer} >
                 <View >
                     <Text style={ProfileStyles.headText}>First Name</Text>
                 </View>
                 <TextInput
                     onChangeText={(value) => setForm({ ...form, firstname: value })}
-                    style={[ProfileStyles.inputBox]}
+                    style={[ProfileStyles.inputBox,{width:width}]}
                     placeholder="First name"
                     onBlur={() => FirstnameValidate(form.firstname)}
                     value={form.firstname}
@@ -196,20 +205,46 @@ export default function Registration() {
                 </Text>
             </View> 
 
+            <View style={styles.container}>
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+        <Text style={styles.paragraph}>I've read and agreed to the terms of use,privacy notice and offer details:
+        
+        </Text>
+      </View>
+      <View style={styles.section}>
+        <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
+        <Text style={styles.paragraph}>Please don't send me any marketing communications</Text>
+      </View>
+     
+     
+    </View>
+
             <TouchableOpacity style={[ProfileStyles.greenButton]}>
                <Text>
-                  <Text style={[ProfileStyles.whiteText]}>Next:Confirmation</Text>
+                  <Text style={[ProfileStyles.whiteText]}>Sign up</Text>
                 </Text>
             </TouchableOpacity>
+            </View>
         </View>
+      
     );
 }
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#fff",
-
-        justifyContent: "center",
+      flex: 1,
+    //   marginHorizontal: 16,
+    //   marginVertical: 32,
+     },
+    section: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom:10,
     },
-});
+    paragraph: {
+      fontSize: 15,
+    },
+    checkbox: {
+      margin: 8,
+    },
+  });
